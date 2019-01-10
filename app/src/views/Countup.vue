@@ -4,6 +4,7 @@
     <h1>{{count}}</h1>
     <h1>Round {{round}}</h1>
     <h1>Number of Bull {{this.totalbull}}</h1>
+    <h1>Bull rate {{this.bullrate.toFixed(1)}}</h1>
     <div class="md-layout md-gutter">
       <div class="md-layout-item">
         <md-button class="md-raised" @click="zero()">0</md-button>
@@ -31,13 +32,14 @@
 // @ is an alias to /src
 
 export default {
-  name: "home",
+  name: "countup",
   components: {},
   data() {
     return {
       count: 0,
       round: 0,
       totalbull: 0,
+      bullrate: 0,
       history: []
     };
   },
@@ -45,26 +47,31 @@ export default {
     zero() {
       this.count += 30;
       this.round += 1;
+      this.bullrate = (100 * this.totalbull) / (3 * this.round);
     },
     one() {
       this.count += 70;
       this.round += 1;
       this.totalbull += 1;
+      this.bullrate = (100 * this.totalbull) / (3 * this.round);
     },
     two() {
       this.count += 110;
       this.round += 1;
       this.totalbull += 2;
+      this.bullrate = (100 * this.totalbull) / (3 * this.round);
     },
     three() {
       this.count += 150;
       this.round += 1;
       this.totalbull += 3;
+      this.bullrate = (100 * this.totalbull) / (3 * this.round);
     },
     restart() {
       this.history.push([this.count, this.totalbull]);
       (this.round = 0), (this.count = 0);
       this.totalbull = 0;
+      this.bullrate = 0;
     }
   }
 };
