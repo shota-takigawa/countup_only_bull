@@ -5,21 +5,23 @@
     <h1>Round {{round}}</h1>
     <h1>Number of Bull {{this.totalbull}}</h1>
     <h1>Bull rate {{this.bullrate.toFixed(1)}}</h1>
-    <div class="md-layout md-gutter">
-      <div class="md-layout-item">
-        <md-button class="md-raised" @click="zero()">0</md-button>
-      </div>
-      <div class="md-layout-item">
-        <md-button class="md-raised" @click="one()">1</md-button>
-      </div>
-      <div class="md-layout-item">
-        <md-button class="md-raised" @click="two()">2</md-button>
-      </div>
-      <div class="md-layout-item">
-        <md-button class="md-raised" @click="three()">3</md-button>
-      </div>
+    <div class="text-xs-center">
+        <v-btn color="#8BC34A" @click="three()">
+          Hat trick!!
+        </v-btn>
     </div>
-    <md-button class="restart md-raised" @click="restart()">Restart</md-button>
+    <div class="text-xs-center nohattrick">
+        <v-btn color="#0288D1" @click="zero()">
+          0 Bull
+        </v-btn>
+        <v-btn color="#0288D1" @click="one()">
+          1 Bull
+        </v-btn>
+        <v-btn color="#0288D1" @click="two()">
+          2 Bull
+        </v-btn>
+    </div>
+    <v-btn class="restart" color="#9E9E9E" @click="restart()">Restart</v-btn>
     <div
       class="history"
       v-for="(v,i) in history"
@@ -81,34 +83,24 @@ export default {
 .home {
   width: 375px;
   height: 667px;
-  /* background-color: aqua; */
+  margin-top: 15px;
+}
+
+.nohattrick {
+  margin-top: 10px;
 }
 
 .restart {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .history {
   font-size: 30px;
-  text-decoration-color: blue;
-  margin-top: 50px;
-}
-
-.md-layout {
-  margin-top: 50px;
-  width: 100%;
-}
-
-.md-layout-item {
-  width: 10%;
+  margin-top: 30px;
 }
 
 h1 {
   margin-top: 30px;
   margin-bottom: 30px;
-}
-
-md-button {
-  background-color: blueviolet;
 }
 </style>

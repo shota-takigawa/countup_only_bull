@@ -4,37 +4,45 @@
     <h1>{{count}}</h1>
     <h1>Round {{round}}</h1>
     <h1>Number of mark {{this.totalmark}}</h1>
-    <h1>Mark rate {{this.markrate.toFixed(1)}}</h1>
-    <md-badge class="md-primary" :md-content="this.twenty">
-      <md-button class="md-raised" @click="twentymethod()">20!</md-button>
-    </md-badge>
+    <!-- <h1>Triple rate {{triplerate}}</h1> -->
+    <h1>Mark per round {{this.markrate.toFixed(1)}}</h1>
+    <v-badge overlap color="black">
+      <span slot="badge">{{twenty}}</span>
+      <v-btn color="blue" @click="twentymethod()">20!</v-btn>
+    </v-badge>
 
-    <md-badge class="md-primary" :md-content="this.nineteen">
-      <md-button class="md-raised" @click="nineteenmethod()">19!</md-button>
-    </md-badge>
+    <v-badge overlap color="black">
+      <span slot="badge">{{nineteen}}</span>
+      <v-btn color="blue" @click="nineteenmethod()">19!</v-btn>
+    </v-badge>
 
-    <md-badge class="md-primary" :md-content="this.eighteen">
-      <md-button class="md-raised" @click="eighteenmethod()">18!</md-button>
-    </md-badge>
+    <v-badge overlap color="black">
+      <span slot="badge">{{eighteen}}</span>
+      <v-btn color="blue" @click="eighteenmethod()">18!</v-btn>
+    </v-badge>
 
-    <md-badge class="md-primary" :md-content="this.seventeen">
-      <md-button class="md-raised" @click="seventeenmethod()">17!</md-button>
-    </md-badge>
+    <v-badge overlap color="black">
+      <span slot="badge">{{seventeen}}</span>
+      <v-btn color="blue" @click="seventeenmethod()">17!</v-btn>
+    </v-badge>
 
-    <md-badge class="md-primary" :md-content="this.sixteen">
-      <md-button class="md-raised" @click="sixteenmethod()">16!</md-button>
-    </md-badge>
+    <v-badge overlap color="black">
+      <span slot="badge">{{sixteen}}</span>
+      <v-btn color="blue" @click="sixteenmethod()">16!</v-btn>
+    </v-badge>
 
-    <md-badge class="md-primary" :md-content="this.fifteen">
-      <md-button class="md-raised" @click="fifteenmethod()">15!</md-button>
-    </md-badge>
+    <v-badge overlap color="black">
+      <span slot="badge">{{fifteen}}</span>
+      <v-btn color="blue" @click="fifteenmethod()">15!</v-btn>
+    </v-badge>
 
-    <md-badge class="md-primary" :md-content="this.bull">
-      <md-button class="md-raised" @click="bullmethod()">Bull!</md-button>
-    </md-badge>
+    <v-badge overlap color="black">
+      <span slot="badge">{{bull}}</span>
+      <v-btn color="blue" @click="bullmethod()">Bull!</v-btn>
+    </v-badge>
 
-    <md-button class="restart md-raised" @click="nextround()">Next Round!!</md-button>
-    <md-button class="restart md-raised" @click="restart()">Restart</md-button>
+    <v-btn class="restart md-raised" @click="nextround()">Next Round!!</v-btn>
+    <v-btn class="restart md-raised" @click="restart()">Restart</v-btn>
     <div
       class="history"
       v-for="(v,i) in history"
@@ -62,6 +70,7 @@ export default {
       round: 0,
       totalmark: 0,
       markrate: 0,
+      triplerate:0,
       history: []
     };
   },
@@ -117,7 +126,8 @@ export default {
     },
     nextround() {
       this.round += 1;
-      this.markrate = this.totalmark / (3 * this.round);
+      this.markrate = this.totalmark / this.round;
+      // this.triplerate = 
     },
     restart() {
       this.history.push([this.markrate.toFixed(1), this.totalmark]);
@@ -131,6 +141,7 @@ export default {
       this.sixteen = 0;
       this.fifteen = 0;
       this.bull = 0;
+      this.triplerate = 0;
     }
   }
 };
@@ -164,9 +175,5 @@ export default {
 h1 {
   margin-top: 30px;
   margin-bottom: 30px;
-}
-
-md-button {
-  background-color: blueviolet;
 }
 </style>

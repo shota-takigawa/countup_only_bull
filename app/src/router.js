@@ -14,7 +14,7 @@ export default new Router({
       component: Countup
     },
     {
-      path: "/ricket",
+      path: "/cricket",
       name: "cricket",
       // route level code-splitting
       // this generates a separate chunk (Cricket.[hash].js) for this route

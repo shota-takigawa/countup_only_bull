@@ -12,6 +12,10 @@ import VueMaterial from "vue-material";
 import "vue-material/dist/vue-material.min.css";
 import firebase from "./firebase";
 import "./registerServiceWorker";
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
+
+Vue.use(Vuetify);
 
 Vue.use(VueMaterial);
 Vue.use(firebase);

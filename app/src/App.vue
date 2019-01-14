@@ -18,5 +18,6 @@ export default {
 <style>
 #app {
   text-align: center;
+  color:rgba(51,51,51,0.8);
 }
 </style>
