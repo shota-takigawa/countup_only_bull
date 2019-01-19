@@ -1,7 +1,10 @@
 <template>
   <!-- <v-tabs centered color="cyan" dark icons-and-text>
   <v-tabs-slider color="yellow"></v-tabs-slider>-->
-  <v-card height="80px">
+  <v-card height="120px">
+    <v-btn block color="#03A9F4" @click="goToMyPage()">
+      <span>My page</span>
+    </v-btn>
     <v-btn block color="#03A9F4" @click="goToCountUp()">
       <span color="#FFFFFF">Count Up!!</span>
     </v-btn>
@@ -43,6 +46,9 @@ export default {
   //   Cricket
   // },
   methods: {
+    goToMyPage() {
+      this.$router.push("/mypage");
+    },
     goToCountUp() {
       this.$router.push("/");
     },

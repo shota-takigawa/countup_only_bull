@@ -6,27 +6,19 @@
     <h1>Number of Bull {{this.totalbull}}</h1>
     <h1>Bull rate {{this.bullrate.toFixed(1)}}</h1>
     <div class="text-xs-center">
-        <v-btn color="#8BC34A" @click="three()">
-          Hat trick!!
-        </v-btn>
+      <v-btn color="#8BC34A" @click="three()">Hat trick!!</v-btn>
     </div>
     <div class="text-xs-center nohattrick">
-        <v-btn color="#0288D1" @click="zero()">
-          0 Bull
-        </v-btn>
-        <v-btn color="#0288D1" @click="one()">
-          1 Bull
-        </v-btn>
-        <v-btn color="#0288D1" @click="two()">
-          2 Bull
-        </v-btn>
+      <v-btn color="#0288D1" @click="zero()">0 Bull</v-btn>
+      <v-btn color="#0288D1" @click="one()">1 Bull</v-btn>
+      <v-btn color="#0288D1" @click="two()">2 Bull</v-btn>
     </div>
     <v-btn class="restart" color="#9E9E9E" @click="restart()">Restart</v-btn>
     <div
       class="history"
       v-for="(v,i) in history"
       :key="i"
-    >{{i}} time： {{v[0]}} & totalbull : {{v[1]}}</div>
+    >{{i + 1}} time： {{v[0]}} & totalbull : {{v[1]}}</div>
   </div>
 </template>
 

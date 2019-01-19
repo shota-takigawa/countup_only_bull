@@ -47,7 +47,7 @@
       class="history"
       v-for="(v,i) in history"
       :key="i"
-    >{{i}} rate： {{v[0]}} & totalmark : {{v[1]}}</div>
+    >{{i + 1}} time：markrate {{v[0]}} & totalmark : {{v[1]}}</div>
   </div>
 </template>
 
