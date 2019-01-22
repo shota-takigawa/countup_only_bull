@@ -1,5 +1,6 @@
 {
   "projects": {
-    "staging": "countup-33651"
+    "staging": "countup-33651",
+    "default": "countup-33651"
   }
 }
