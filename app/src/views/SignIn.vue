@@ -1,16 +1,12 @@
 <template>
-  <v-card class="signup mx-auto" color="#26c6da" dark max-width="300">
+  <v-card class="signin mx-auto" color="#26c6da" dark max-width="300">
     <v-card-title>
-      <span class="title font-weight-light">サインアップ</span>
+      <span class="title font-weight-light">サインイン</span>
     </v-card-title>
 
     <v-form>
       <v-container>
         <v-layout row wrap>
-          <v-flex xs12 sm6>
-            <v-text-field v-model="name" label="Name" outline clearable></v-text-field>
-          </v-flex>
-
           <v-flex xs12 sm6>
             <v-text-field v-model="email" label="Email" outline clearable></v-text-field>
           </v-flex>
@@ -20,7 +16,10 @@
           </v-flex>
 
           <v-flex xs12 sm6>
-            <v-btn color="#0288D1" @click="submit()">登録</v-btn>
+            <v-btn color="#0288D1" @click="submit()">サインイン</v-btn>
+          </v-flex>
+          <v-flex xs12 sm6>
+            <v-btn color="#0288D1" @click="goToSignUp()">登録へ</v-btn>
           </v-flex>
         </v-layout>
       </v-container>
@@ -32,33 +31,35 @@
 // @ is an alias to /src
 
 export default {
-  name: "signup",
+  name: "signin",
   components: {},
   data() {
     return {
-      name: "",
       email: "",
       password: ""
     };
   },
   methods: {
     submit() {
-      this.$auth
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(user => {
-          alert("Create account: ", user.email);
+      this.$auth.signInWithEmailAndPassword(this.email, this.password).then(
+        user => {
+          alert("Success!", user.email);
           this.$router.push("/countup");
-        })
-        .catch(error => {
-          alert(error.message);
-        });
+        },
+        err => {
+          alert(err.message);
+        }
+      );
+    },
+    goToSignUp() {
+      this.$router.push("/signup");
     }
   }
 };
 </script>
 
 <style scoped>
-.signup {
+.signin {
   margin-top: 40px;
 }
 </style>

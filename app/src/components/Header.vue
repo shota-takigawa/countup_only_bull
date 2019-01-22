@@ -50,7 +50,7 @@ export default {
       this.$router.push("/mypage");
     },
     goToCountUp() {
-      this.$router.push("/");
+      this.$router.push("/countup");
     },
     goToCricket() {
       this.$router.push("/cricket");
